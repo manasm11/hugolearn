@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="container col-xxl-8">
+  <div class="row align-items-center justify-content-center py-5 g-5">
+    <div class="col-lg-6">
+      <img
+        src="/img/green-monkey.jpg"
+        alt="Green Monkey"
+        class="img-fluid d-block mx-auto"
+      />
+    </div>
+    <div class="col-lg-6 order-lg-first">
+      <h1>{{ .Params.heading }}</h1>
+      <p>{{ .Content }}</p>
+      <div>
+        {{ with .Params.btn1}} {{ if and .text .url }}
+        <button
+          type="button"
+          class="btn btn-lg btn-primary px-4 me-lg-2"
+          href="{{ .url }}"
+        >
+          {{ .text }}
+        </button>
+        {{ end }} {{ end }} {{ with .Params.btn2 }} {{if and .text .url}}
+        <button
+          type="button"
+          class="btn btn-lg btn-outline-secondary px-4"
+          href="{{ .url }}"
+        >
+          {{ .text }}
+        </button>
+        {{ end }} {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
